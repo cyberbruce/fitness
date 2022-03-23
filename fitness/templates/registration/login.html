@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+{% endblock css %}
+  
+{% block body %}
+
+
+<div class="d-flex justify-content-center m-5 p-3   login-box">
+<div class="p-5">
+  <div class="display-4 text-center">
+    Martin 
+    <br>
+    Fitness Tracker</div>
+</div>
+<div class="col-md-4 m-4">
+
+<form method="post">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  {% bootstrap_button 'Login' button_class="btn-primary btn-lg" %}
+</form>
+
+</div>
+</div>
+
+{% endblock body %}

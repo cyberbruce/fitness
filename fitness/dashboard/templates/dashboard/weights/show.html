@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% load bootstrap5 %}
+
+{% block body %}
+  <div class="border-bottom py-3 my-2">
+    <a href="{% url 'dashboard:home' %}">Back to Dashboard</a>
+  </div>
+
+  <h1>Your Weight</h1>
+
+
+  
+  <dl>
+    <dt>Lbs</dt>
+    <dd>{{ weight.lbs }}</dd>
+    <dt>Entry Date</dt>
+    <dd>{{ weight.entry_date | date }}</dd>
+  </dl>
+
+  <form method="post" action="{% url 'dashboard:weight_destroy' weight.id %}" hx-boost="true" hx-confirm="Are you sure?">
+    {% csrf_token %}
+    {% bootstrap_button 'Destroy Weight' %}
+  </form>
+
+{% endblock body %}

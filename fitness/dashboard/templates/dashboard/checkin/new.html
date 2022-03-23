@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% load bootstrap5 %}
+{% block body %}
+<h3>Weight Checkin for {% now "SHORT_DATETIME_FORMAT" %}</h3>
+
+<div class="container m-2">
+<form method="post" novalidate>
+  {% csrf_token %}
+
+  {% bootstrap_form form %}
+  {% bootstrap_button 'Submit' %}
+  <a href="{% url 'dashboard:home' %}" class="btn btn-secondary">Back</a>
+</form>
+</div>
+
+
+{% endblock body %}

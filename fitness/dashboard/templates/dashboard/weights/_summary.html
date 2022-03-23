@@ -1,0 +1,18 @@
+<h1>This Week</h1>
+
+
+<table class="table">
+  <thead>
+      <tr>
+        <th>Lbs</th>
+        <th>Date</th>
+      </tr>
+  </thead>
+  {% for weight in weights %}
+  <tr>
+    <td>{{ weight.lbs }}</td>
+    <td><a href="{% url 'dashboard:weight' weight.id %}">{{ weight.entry_date |date }}</a></td>
+  </tr>
+  {% endfor %}
+
+</table>

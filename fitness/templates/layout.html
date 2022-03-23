@@ -1,5 +1,5 @@
 {% load bootstrap5 %}
-
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,14 +11,20 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    {% block css %}{% endblock css %}
 
     <title>Fitness</title>
   </head>
   <body>
     <div id="main" class="container">
+    {% if view.template_name != "registration/login.html"  %}
+      {% include '_signon.html' %}
+    {% endif %}
     {% bootstrap_messages %}
-    {% block body %}{% endblock body %}
-    </div>
- 
+      
+      {% block body %}{% endblock body %}
+       
+    </div> 
   </body>
 </html>
