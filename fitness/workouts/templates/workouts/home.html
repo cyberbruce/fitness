@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h4>Workouts</h4>
+
+  <div class="menu-wrapper">
+  <a href="{% url 'dashboard:home'%}">Back to Dashboard</a> | 
+  <a href="{% url 'workouts:create_workout' %}">Create a new Workout</a>
+  </div>
+
+  
+  <div class="border my-3 p-3">
+
+  <h5>Workouts</h5>
+
+  
+  {% if workouts  %}
+  <table class="table">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Date</td>
+            <td>Duration(min)</td>
+        </tr>
+    </thead>
+    {% for w in workouts %}
+      <tr>
+          <td><a href="{% url 'workouts:update_workout' w.id %}">{{ w.name }}</a></td>
+          <td>{{ w.workout_datetime | date }}</td>
+          <td>{{ w.duration }}</td>
+      </tr>
+    {% endfor %}
+
+  </table>
+  {% else %}
+    <h2 class="text-muted">Let's create a new workout today!</h2>
+  {% endif %}
+</div>
+
+{% endblock body %}

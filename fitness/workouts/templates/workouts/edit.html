@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load bootstrap5 %}
+
+{% block body %}
+<div>
+  <a href="{% url 'workouts:home' %}">Back to Workouts</a>
+</div>
+
+<div class="bg-light m-3 p-3 border rounded">
+  <h1>Let's finish your workout!</h1>
+  <form novalidate method="post" autocomplete="off">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+
+
+      <div class="d-flex flex-wrap justify-content-between">
+          <div>
+              {% bootstrap_button 'Create' %}
+          </div>
+          <div>
+              <a href="{% url 'workouts:delete_workout' form.instance.id %}">Remove</a>
+          </div>
+      </div>
+  </form>
+  
+</div>  
+{% endblock body %}

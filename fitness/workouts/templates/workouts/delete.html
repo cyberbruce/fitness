@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% load bootstrap5 %}
+{% block body %}
+
+  <h1>Remove the Workout Below?</h1>
+
+  <form method="post" hx-post="" hx-confirm="Are you sure?">
+    {% csrf_token %}
+    <h3>Name: {{ workout.name }}</h3>
+    <div class="border-top my-3 py-3">
+    {% bootstrap_button 'Remove' button_class="btn-danger"  %} 
+    </div>
+  </form>
+
+{% endblock body %}

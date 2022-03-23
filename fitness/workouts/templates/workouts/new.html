@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% load bootstrap5 %}
+
+{% block body %}
+<div>
+  <a href="{% url 'workouts:home' %}">Back to Workouts</a>
+</div>
+
+<div class="bg-light m-3 p-3 border rounded">
+  <h1>Tell us about your workout!</h1>
+  <form novalidate method="post" autocomplete="off">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+
+
+      {% bootstrap_button 'Create' %}
+  </form>
+</div>  
+{% endblock body %}
