@@ -1,30 +1,39 @@
 {% load bootstrap5 %}
 {% load static %}
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    <script src="https://unpkg.com/htmx.org@1.7.0"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
-    {% block css %}{% endblock css %}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Fitness</title>
-  </head>
-  <body>
-    <div id="main" class="container">
+  <!-- Bootstrap CSS -->
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+  <script src="{% static 'bundle.js' %}" defer ></script>
+  {% block css %}{% endblock css %}
+
+  <title>Fitness</title>
+</head>
+
+<body>
+  <div id="main" class="container">
+    {% block breadcrumbs %}
+    {% endblock breadcrumbs %}
+
     {% if view.template_name != "registration/login.html"  %}
-      {% include '_signon.html' %}
+    {% include '_signon.html' %}
     {% endif %}
+
     {% bootstrap_messages %}
-      
-      {% block body %}{% endblock body %}
-       
-    </div> 
-  </body>
+
+    {% block body %}{% endblock body %}
+
+  </div>
+</body>
+
 </html>

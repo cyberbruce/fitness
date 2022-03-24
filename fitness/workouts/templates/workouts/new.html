@@ -10,10 +10,16 @@
   <h1>Tell us about your workout!</h1>
   <form novalidate method="post" autocomplete="off">
       {% csrf_token %}
-      {% bootstrap_form form %}
+      {% bootstrap_field form.name %}
+      {% bootstrap_field form.workout_datetime %}
+      <div class="d-flex flex-wrap">
+      {% bootstrap_field form.duration form_group_class="m-2"%}
+      {% bootstrap_field form.effort form_group_class="m-2" %}
+      </div>
 
-
+      <div class="my-3">
       {% bootstrap_button 'Create' %}
+      </div>
   </form>
 </div>  
 {% endblock body %}

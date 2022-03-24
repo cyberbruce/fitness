@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dashboard',
     'bootstrap5',
-    'workouts',
+    'workouts',    
 ]
 
 MIDDLEWARE = [

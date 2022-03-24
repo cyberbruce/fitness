@@ -1,0 +1,17 @@
+{
+  "name": "fitness",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild  --bundle --sourcemap --outfile=static/bundle.js javascript/application.js",
+    "dev": "esbuild  --bundle --sourcemap --outfile=static/bundle.js javascript/application.js --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "esbuild": "^0.14.27",
+    "mdb-ui-kit": "^3.11.0"
+  }
+}
