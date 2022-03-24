@@ -1,7 +1,10 @@
 {% extends 'layout.html' %}
  
+ 
+
 
 {% block body %}
+
 
 <h1 class="text-muted">Fitness Dashboard</h1>
 
@@ -16,7 +19,7 @@
 <div hx-get="{% url 'dashboard:weights_summary' %}" hx-trigger="load">
   Loading...
 </div>
-
+  
  
 
  
