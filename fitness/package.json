@@ -11,7 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hotwired/stimulus": "^3.0.1",
     "esbuild": "^0.14.27",
-    "mdb-ui-kit": "^3.11.0"
+    "flatpickr": "^4.6.11",
+    "jquery": "^3.6.0",
+    "mdb-ui-kit": "^3.11.0",
+    "stimulus": "^3.0.1"
   }
 }

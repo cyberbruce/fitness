@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .forms import WeightForm
 from django.contrib import messages
+from django.contrib.messages import SUCCESS
 from .models import Weight
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
@@ -11,6 +12,7 @@ from django.utils import timezone
 
 class SecureView(LoginRequiredMixin, View):
     """Inherit views from this"""
+
     pass
 
 
@@ -62,5 +64,6 @@ class WeightView(SecureView):
 class DestroyWeight(SecureView):
     def post(self, request, pk):
         """Destroy the selected Weight"""
-        get_object_or_404(Weight, pk=pk).delete()    
+        get_object_or_404(Weight, pk=pk).delete()
+        messages.add_message(request, SUCCESS, "Removed Weight successfully!")
         return redirect("dashboard:home")

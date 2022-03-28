@@ -1,6 +1,10 @@
 {% extends 'layout.html' %}
 {% load bootstrap5 %}
 {% block body %}
+<div class="my-3">
+  <a href="{% url 'dashboard:home' %}">Back to Dashboard</a>
+</div>
+
 <h3>Weight Check-in for {% now "SHORT_DATETIME_FORMAT" %}</h3>
 
 <div class="container m-2">
@@ -9,7 +13,7 @@
 
   {% bootstrap_form form %}
   {% bootstrap_button 'Submit' %}
-  <a href="{% url 'dashboard:home' %}" class="btn btn-secondary">Back</a>
+  
 </form>
 </div>
 

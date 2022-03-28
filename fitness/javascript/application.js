@@ -1,2 +1,7 @@
+import $ from "jquery";
+window.$ = $;
+ 
 
-console.log("Django js running");
+import  "./controllers/index";
+
+

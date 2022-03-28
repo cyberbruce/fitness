@@ -7,5 +7,5 @@ class WorkoutForm(forms.ModelForm):
         fields = ['name', 'workout_datetime', 'duration', 'effort']
         widgets = {
           'name': forms.TextInput(attrs={ 'autofocus': True }),
-          #'workout_datetime': forms.TextInput(attrs={'type': 'datetime-local'})
+          'workout_datetime': forms.DateTimeInput(attrs={'data-controller': 'datepicker', 'data-datepicker-time': 'true' })
         }

@@ -17,7 +17,7 @@
     <dd>{{ weight.entry_date | date }}</dd>
   </dl>
 
-  <form method="post" action="{% url 'dashboard:weight_destroy' weight.id %}" hx-boost="true" hx-confirm="Are you sure?">
+  <form method="post" action="{% url 'dashboard:weight_destroy' weight.id %}" >
     {% csrf_token %}
     {% bootstrap_button 'Destroy Weight' %}
   </form>
