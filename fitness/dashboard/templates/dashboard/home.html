@@ -1,12 +1,19 @@
 {% extends 'layout.html' %}
- 
- 
+
+{% block css %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+{% endblock css %}
+
+
+    
 
 
 {% block body %}
 
 
 <h1 class="text-muted">Fitness Dashboard</h1>
+
+<div id="chart_div"></div>
 
 <div class="d-flex flex-column">
   <div class="my-3 py-3">
@@ -19,8 +26,5 @@
 <div hx-get="{% url 'dashboard:weights_summary' %}" hx-trigger="load">
   Loading...
 </div>
-  
- 
-
  
 {% endblock body %}

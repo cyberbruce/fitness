@@ -49,7 +49,9 @@ class WeightsView(SecureView):
     def get(self, request):
         """Display Weights in dashboard partial"""
         weights = Weight.objects.order_by("-entry_date").all()
-        context = {"weights": weights}
+        chart = [[x.entry_date, x.lbs] for x in weights]
+
+        context = {"weights": weights, "chart": chart}
         return render(request, "dashboard/weights/_summary.html", context)
 
 
