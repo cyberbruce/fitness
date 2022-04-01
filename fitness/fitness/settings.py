@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-sko$r4-q1g4sn-^0o=)k_+(+y=%d@mwcj*!f524dk*pdlgcl!h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dashboard',
-    'bootstrap5',
+    # 3rd party
+    'django_extensions',
+    'bootstrap5',  
+    # Internal
+    'dashboard',    
     'workouts',    
 ]
 
@@ -134,4 +137,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL="/dashboard"
 LOGOUT_REDIRECT_URL="/"
 LOGIN_URL='/accounts/login'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
     

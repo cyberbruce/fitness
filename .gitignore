@@ -5,3 +5,4 @@ node_modules
 .gitignore
 fitness/static/bundle*
 fitness/db.sqlite3
+fitness/public

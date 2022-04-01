@@ -15,7 +15,7 @@ class Weight(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     profile = models.ForeignKey(
-        Profile, on_delete=models.CASCADE, related_name="weight"
+        Profile, on_delete=models.CASCADE, related_name="weights"
     )
 
     class Meta:

@@ -1,5 +1,11 @@
 {% extends 'layout.html' %}
 
+
+{% block css %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+{% endblock css %}
+
+
 {% block body %}
   <h4>Workouts</h4>
 
@@ -13,8 +19,11 @@
 
   <h5>Workouts</h5>
 
+
   
   {% if workouts  %}
+  <h5>Chart</h5>
+  <div id="chart_div"></div>
  
   <div class="container">
     <div class="row border-bottom bg-dark text-white">
@@ -48,5 +57,43 @@
     <h2 class="text-muted">Let's create a new workout today!</h2>
   {% endif %}
 </div>
+
+
+
+<script>
+
+  google.charts.load('current', {packages: ['corechart', 'line']});
+  google.charts.setOnLoadCallback(drawBasic);
+  
+  function drawBasic() {
+  
+        var data = new google.visualization.DataTable();
+        data.addColumn('date', 'Date');
+        data.addColumn('number', 'Weight');
+  
+        data.addRows([           
+            {% for w in chart %}
+              [new Date("{{w.month|date:"Y-m-d"}}"), {{w.total}}],
+            {% endfor %}            
+        ]);
+  
+        var options = {
+          hAxis: {
+            title: 'Intensity'
+          },
+          vAxis: {
+            title: 'Date'
+          }
+        };
+  
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+  
+        chart.draw(data, options);
+      }
+</script>
+ 
+
+
+
 
 {% endblock body %}

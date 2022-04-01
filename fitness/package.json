@@ -15,6 +15,7 @@
     "esbuild": "^0.14.27",
     "flatpickr": "^4.6.11",
     "google-charts": "^2.0.0",
+    "htmx.org": "^1.7.0",
     "jquery": "^3.6.0",
     "mdb-ui-kit": "^3.11.0",
     "stimulus": "^3.0.1"
