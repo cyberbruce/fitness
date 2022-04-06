@@ -1,13 +1,18 @@
+from datetime import tzinfo
 from django.db import models
 from dashboard.models import Profile
 from django.db.models.aggregates import Sum
+from django.db.models.functions import TruncDay
 from django.db.models import F
 from base import FitnessModel
+from django.utils import timezone
+from django.db.models.functions import TruncDay
 
-class WorkoutManager(FitnessModel):
+
+class WorkoutManager(models.Manager):
     def chart_data(self):
         """ Sum of intensity by workout date """
-        return self.annotate(month=F("workout_datetime__date")).values("month").annotate(            
+        return self.annotate(month=TruncDay("workout_datetime", tzinfo=timezone.tzinfo)).values("month").annotate(            
             total=Sum(F("duration")*F("effort"))
         )
 

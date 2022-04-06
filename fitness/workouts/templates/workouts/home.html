@@ -75,7 +75,7 @@
   
         data.addRows([           
             {% for w in chart %}
-              [new Date("{{w.month|date:"Y-m-d"}}"), {{w.total}}],
+              [new Date({{w.month|date:"Y"}},{{w.month|date:"m"}},{{w.month|date:"d"}}), {{w.total}}],
             {% endfor %}            
         ]);
   

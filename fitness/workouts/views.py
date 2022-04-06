@@ -15,8 +15,10 @@ class HomeView(SecureView):
     def get(self, request):
         """render current users workouts"""
         workouts = workouts_for_me(request.user)
+       
         chart = request.user.profile.workouts.chart_data
-        
+       
+ 
         #
         return render(
             request,

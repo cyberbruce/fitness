@@ -32,8 +32,8 @@
         data.addColumn('number', 'Weight');
   
         data.addRows([           
-            {% for x,y in chart %}
-              [new Date("{{x|date:"Y-m-d"}}"), {{y}}],
+            {% for x,y in chart %}              
+              [new Date({{x|date:"Y"}},{{x|date:"m"}},{{x|date:"d"}}), {{y}}],
             {% endfor %}            
         ]);
   
