@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'bootstrap5',  
     # Internal
     'dashboard',    
-    'workouts',    
+    'workouts',   
 ]
 
 MIDDLEWARE = [

@@ -25,21 +25,23 @@
   <h5>Chart</h5>
   <div id="chart_div"></div>
  
-  <div class="container">
+  <div>
     <div class="row border-bottom bg-dark text-white">
     
-        <div class="col-md-3">Name</div>
-        <div class="col-md-3">Date</div>
-        <div class="col-md-3">Duration(min)</div>
-        <div class="col-md-3">Effort</div>
+        <div class="col-md-4">Name</div>
+        <div class="col-md-2">Date</div>
+        <div class="col-md-1">Duration(min)</div>
+        <div class="col-md-1">Intensity</div>
+        <div class="col-md-2">Effort</div>
     
       </div>
     {% for w in workouts %}
       <div class="row border-bottom py-2">
-          <div class="col-md-3"><a href="{% url 'workouts:update_workout' w.id %}">{{ w.name }}</a></div>
-          <div class="col-md-3">{{ w.workout_datetime | date:"SHORT_DATETIME_FORMAT"}}</div>
-          <div class="col-md-3">{{ w.duration }}</div>
-          <div class="col-md-3"  >
+          <div class="col-md-4"><a href="{% url 'workouts:update_workout' w.id %}">{{ w.name }}</a></div>
+          <div class="col-md-2">{{ w.workout_datetime | date:"SHORT_DATETIME_FORMAT"}}</div>
+          <div class="col-md-1">{{ w.duration }}</div>
+          <div class="col-md-1">{{ w.intensity }}</div>
+          <div class="col-md-4">
               
             <div class="progress">
               <div class="progress-bar bg-success" role="progressbar" style="width: {{w.pct}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -69,7 +71,7 @@
   
         var data = new google.visualization.DataTable();
         data.addColumn('date', 'Date');
-        data.addColumn('number', 'Weight');
+        data.addColumn('number', 'Intensity');
   
         data.addRows([           
             {% for w in chart %}
@@ -86,7 +88,7 @@
           }
         };
   
-        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
   
         chart.draw(data, options);
       }

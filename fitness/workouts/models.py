@@ -2,8 +2,9 @@ from django.db import models
 from dashboard.models import Profile
 from django.db.models.aggregates import Sum
 from django.db.models import F
+from base import FitnessModel
 
-class WorkoutManager(models.Manager):
+class WorkoutManager(FitnessModel):
     def chart_data(self):
         """ Sum of intensity by workout date """
         return self.annotate(month=F("workout_datetime__date")).values("month").annotate(            
@@ -11,7 +12,7 @@ class WorkoutManager(models.Manager):
         )
 
 
-class Workout(models.Model):
+class Workout(FitnessModel):
     objects = WorkoutManager()
 
     profile = models.ForeignKey(
@@ -30,3 +31,4 @@ class Workout(models.Model):
 
     def intensity(self):
         return self.duration * self.effort
+ 
