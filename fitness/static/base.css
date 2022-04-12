@@ -1,4 +1,9 @@
 .menu-wrapper {
-  padding: 5px;
-  margin: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+body {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 1.0rem;
 }

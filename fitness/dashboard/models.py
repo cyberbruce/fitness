@@ -28,6 +28,6 @@ class Weight(FitnessModel):
 
     def clean(self):
         self.validate_unique()
-        super(self.__class__).clean()
+        
         
   

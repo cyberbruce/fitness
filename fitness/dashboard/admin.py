@@ -7,4 +7,4 @@ class WeightAdmin(admin.ModelAdmin):
   
 
 admin.site.register(models.Weight, WeightAdmin)
-
+admin.site.register(models.Profile)

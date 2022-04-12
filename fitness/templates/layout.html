@@ -1,5 +1,6 @@
 {% load bootstrap5 %}
 {% load static %}
+ 
 
 <!doctype html>
 <html lang="en">
@@ -9,6 +10,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;600&family=Merriweather:wght@300&display=swap" rel="stylesheet">
   <!-- Bootstrap CSS -->
   {% bootstrap_css %}
   {% bootstrap_javascript %}
@@ -23,10 +27,9 @@
 </head>
 
 <body>
-  <div id="main" class="container">
-    {% block breadcrumbs %}
-    {% endblock breadcrumbs %}
-
+  <div id="main" class="container-fluid">
+    
+    
     {% if view.template_name != "registration/login.html"  %}
     {% include '_signon.html' %}
     {% endif %}

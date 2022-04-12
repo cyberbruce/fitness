@@ -28,29 +28,29 @@
   <div>
     <div class="row border-bottom bg-dark text-white">
     
-        <div class="col-md-4">Name</div>
-        <div class="col-md-2">Date</div>
-        <div class="col-md-1">Duration(min)</div>
-        <div class="col-md-1">Intensity</div>
-        <div class="col-md-2">Effort</div>
+        <div class="col-md-7">Name</div>        
+        <div class="col-md-3">Duration(min)</div>
+        <div class="col-md-2">Intensity</div>
+ 
     
       </div>
     {% for w in workouts %}
       <div class="row border-bottom py-2">
-          <div class="col-md-4"><a href="{% url 'workouts:update_workout' w.id %}">{{ w.name }}</a></div>
-          <div class="col-md-2">{{ w.workout_datetime | date:"SHORT_DATETIME_FORMAT"}}</div>
-          <div class="col-md-1">{{ w.duration }}</div>
-          <div class="col-md-1">{{ w.intensity }}</div>
-          <div class="col-md-4">
-              
+          <div class="col-md-7">
+            <a href="{% url 'workouts:update_workout' w.id %}">{{ w.name }}</a>
+            <div>{{ w.workout_datetime | date:"SHORT_DATETIME_FORMAT"}}</div>   
             <div class="progress">
               <div class="progress-bar bg-success" role="progressbar" style="width: {{w.pct}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                 {{w.pct}}%  (effort {{w.effort}})
 
               </div>
-            </div>
-
+            </div>       
           </div>
+          
+          <div class="col-md-3">{{ w.duration }}</div>
+          <div class="col-md-2">{{ w.intensity }}</div> 
+
+          
       </div>
     {% endfor %}
  
